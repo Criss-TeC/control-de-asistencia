@@ -1,0 +1,28 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Actualizar Registro{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Actualizar Registro - {{ asignatura }}</h1>
+
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <!-- Fecha -->
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" value="{{ registro.fecha }}" required>
+        </div>
+
+        <!-- Horas asistidas -->
+        <div class="mb-3">
+            <label for="horas" class="form-label">Horas Asistidas</label>
+            <input type="number" class="form-control" id="horas" name="horas" value="{{ registro.horas_asistidas }}" min="1" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+    </form>
+</div>
+
+<a href="{% url 'asignatura_detalle' asignatura %}" class="btn btn-secondary mt-3">Volver</a>
+{% endblock %}

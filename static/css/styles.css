@@ -1,0 +1,137 @@
+/* Fondo general */
+body {
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #343a40;           /* Texto oscuro por defecto */
+}
+
+.login-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #343a40; /* Fondo oscuro */
+    border-color: #343a40;     /* Borde oscuro */
+    color: #ffffff;            /* Texto blanco */
+}
+
+.btn-primary:hover {
+    background-color: #495057; /* Hover más claro */
+    border-color: #495057;
+}
+
+.btn-primary:active, 
+.btn-primary:focus {
+    background-color: #6c757d !important; /* Fondo gris claro */
+    border-color: #6c757d !important;
+    color: #ffffff !important;
+    box-shadow: none !important;          /* Quitar borde azul */
+    outline: none !important;             /* Sin contorno */
+}
+
+/* Estado activo específico para navegadores que usan focus-visible */
+.btn-primary:not(:focus-visible) {
+    box-shadow: none !important;
+}
+
+/* Tarjetas (Cards) */
+.form-card {
+    width: 100%;
+    max-width: 500px; /* Ancho ajustado */
+    border-radius: 10px;
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #6c757d; /* Borde gris claro */
+}
+
+/* Encabezados dentro de tarjetas */
+.card-body h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #343a40; /* Texto oscuro */
+}
+
+/* Inputs */
+.form-floating input {
+    border-radius: 5px;
+    border: 1px solid #6c757d; /* Borde gris claro */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #343a40;            /* Texto oscuro */
+}
+
+.form-floating input:focus {
+    border-color: #343a40; /* Borde oscuro al enfocar */
+    box-shadow: 0 0 5px rgba(52, 58, 64, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #343a40; /* Fondo oscuro */
+    color: #ffffff;           /* Texto blanco */
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #343a40; /* Texto oscuro */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #495057; /* Gris más claro al pasar el mouse */
+}
+
+/* Títulos generales */
+h1, h2, h3, h4, h5, h6 {
+    color: #343a40; /* Oscuro para encabezados */
+}
+
+/* Texto secundario */
+.text-secondary {
+    color: #adb5bd !important; /* Gris claro */
+}
+
+/* Estilos para la lista del dashboard */
+.list-group-item {
+    border: 1px solid #6c757d; /* Borde gris claro */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #343a40;            /* Texto oscuro */
+    border-radius: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef; /* Fondo más claro al pasar el mouse */
+    color: #343a40;
+}
+
+/* Tabla en detalles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+}
+
+.table th {
+    background-color: #343a40; /* Fondo oscuro para encabezados */
+    color: #ffffff;            /* Texto blanco */
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid #6c757d;
+}
+
+.table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #6c757d;
+}
+
+.table tr:last-child td {
+    font-weight: bold;         /* Total resaltado */
+    background-color: #f8f9fa; /* Fondo claro */
+}

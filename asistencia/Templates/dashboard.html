@@ -1,0 +1,22 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Mis Asignaturas</h1>
+
+<!-- Botón para ir a la página de registrar -->
+<div class="text-end mb-3">
+    <a href="{% url 'registrar_horas' %}" class="btn btn-success">Registrar Horas</a>
+</div>
+
+<!-- Lista de asignaturas -->
+<div class="list-group">
+    {% for asignatura in asignaturas %}
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="fw-bold me-5">{{ asignatura.nombre }}</span>
+        <a href="{% url 'asignatura_detalle' asignatura.nombre %}" class="btn btn-sm btn-primary">Ver Detalles</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

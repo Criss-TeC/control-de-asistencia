@@ -1,0 +1,48 @@
+{% extends 'themes/base.html' %}
+
+{% block title %}Registrar Horas{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Registrar Horas Asistidas</h1>
+<div class="form-container">
+    <form method="post" action="{% url 'registrar_horas' %}">
+        {% csrf_token %}
+        <!-- Selección de asignatura -->
+        <div class="mb-3">
+            <label for="asignatura" class="form-label">Asignatura</label>
+            <select class="form-select" id="asignatura" name="asignatura" required>
+                <option value="">Seleccione una asignatura</option>
+                {% for asignatura in asignaturas %}
+                <option value="{{ asignatura.id }}">{{ asignatura.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        {% if es_lider %}
+        <div class="mb-3">
+            <label for="registrado_por" class="form-label">Registrar para</label>
+            <select class="form-select" id="registrado_por" name="registrado_por" required>
+                {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+
+        <!-- Fecha -->
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+        </div>
+
+        <!-- Horas asistidas -->
+        <div class="mb-3">
+            <label for="horas" class="form-label">Horas Asistidas</label>
+            <input type="number" class="form-control" id="horas" name="horas" min="1" required>
+        </div>
+
+        <!-- Botón de enviar -->
+        <button type="submit" class="btn btn-primary w-100">Registrar</button>
+    </form>
+</div>
+{% endblock %}
