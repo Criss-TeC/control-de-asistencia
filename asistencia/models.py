@@ -20,20 +20,22 @@ class Lenguaje(models.Model):
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Ingles(models.Model):
     fecha = models.DateField()  # Fecha de la asistencia
     horas_asistidas = models.PositiveIntegerField()  # Número de horas asistidas
-    registrado_por = models.ForeignKey(
+    usuario = models.ForeignKey(
         User, on_delete=models.CASCADE, null=False
     )  # Usuario que registró las horas
 
     def __str__(self):
         return f"{self.fecha} - {self.horas_asistidas} horas"
 
+
 class Lenguaje(models.Model):
     fecha = models.DateField()  # Fecha de la asistencia
     horas_asistidas = models.PositiveIntegerField()  # Número de horas asistidas
-    registrado_por = models.ForeignKey(
+    usuario = models.ForeignKey(
         User, on_delete=models.CASCADE, null=False
     )  # Usuario que registró las horas
 

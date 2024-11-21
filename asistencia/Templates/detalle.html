@@ -6,50 +6,58 @@
 <h1 class="text-center">{{ asignatura }}</h1>
 
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Usuario</th>
-            <th>Fecha</th>
-            <th>Horas Asistidas</th>
-            {% if es_lider %}
-            <th>Acciones</th>
-            {% endif %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for registro in registros %}
-        <tr>
-            <td>{{ registro.registrado_por.username }}</td>
-            <td>{{ registro.fecha }}</td>
-            <td>{{ registro.horas_asistidas }}</td>
-            {% if es_lider %}
-            <td>
-                    <a href="{% url 'actualizar_horas' asignatura registro.id %}" class="btn btn-sm btn-warning">Actualizar</a>
-                <form method="post" action="{% url 'eliminar_horas' asignatura registro.id %}" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
-                </form>
-            </td>
-            {% endif %}
-        </tr>
-        {% endfor %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            {% if es_lider %}
-            <td></td>
-            {% endif %}
-        </tr>
-        <tr>
-            <td><strong>Total</strong></td>
-            <td></td>
-            {% if es_lider %}
-            <td></td>
-            {% endif %}
-            <td><strong>{{ total_horas }}</strong></td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Fecha</th>
+      <th>Horas Asistidas</th>
+      {% if es_lider %}
+      <th>Acciones</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for registro in registros %}
+    <tr>
+      <td>{{ registro.usuario.username }}</td>
+      <td>{{ registro.fecha }}</td>
+      <td>{{ registro.horas_asistidas }}</td>
+      {% if es_lider %}
+      <td>
+        <a
+          href="{% url 'actualizar_horas' asignatura registro.id %}"
+          class="btn btn-sm btn-warning"
+          >Actualizar</a
+        >
+        <form
+          method="post"
+          action="{% url 'eliminar_horas' asignatura registro.id %}"
+          class="d-inline"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        </form>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      {% if es_lider %}
+      <td></td>
+      {% endif %}
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td></td>
+      {% if es_lider %}
+      <td></td>
+      {% endif %}
+      <td><strong>{{ total_horas }}</strong></td>
+    </tr>
+  </tbody>
 </table>
 
 <a href="{% url 'dashboard' %}" class="btn btn-secondary">Volver</a>
