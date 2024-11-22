@@ -5,12 +5,12 @@
 {% block content %}
 <h1 class="text-center mb-4">Mis Asignaturas</h1>
 
-<!-- Botón para ir a la página de registrar -->
+<!-- Boton registrar -->
 <div class="text-end mb-3">
     <a href="{% url 'registrar_horas' %}" class="btn btn-success">Registrar Horas</a>
 </div>
 
-<!-- Lista de asignaturas -->
+<!-- Lista asignaturas -->
 <div class="list-group">
     {% for asignatura in asignaturas %}
     <div class="list-group-item d-flex justify-content-between align-items-center mb-1">
